@@ -1,0 +1,21 @@
+.container{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    margin-top : 30px;
+    background:rgba(1,1,1,0.5);
+    height: 700px;
+}
+
+.container button:hover{
+    
+    background-color:rgba(1,1,1,0.6) ;
+}
+
+.bt
+{
+    margin: 3rem;
+}
+button{
+    margin: 2rem;
+}

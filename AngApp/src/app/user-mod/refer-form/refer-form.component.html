@@ -1,0 +1,116 @@
+
+<mat-toolbar>
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  
+  <span class="navbar-brand mb-0 h1"><img src="https://nextstephr.co.uk/wp-content/uploads/2021/03/NextStepHRLogoBlack.png" style="height: 70px;width: 90%"></span>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+  
+    <mat-sidenav #sidenav="matSidenav" >
+  
+      <img class="avatar mat-elevation-z4" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+      
+      <br>
+      <div *ngIf="userData">
+  
+          <h4 class="name">{{userData.userName}}</h4>
+          <p class="designation">{{userData.email}}</p>
+      </div>
+      
+      <mat-divider></mat-divider>
+  
+          <button mat-button class="menu-button" (click)="handleDash()">DashBoard</button>
+          <button mat-button class="menu-button1"  >Referral Form</button>
+          <button mat-button class="menu-button" (click)="handleLogout()">Log-Out</button>
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z4">
+        
+        <div class="ref-form col col-md-8">
+            
+            <div class="jumbotron">
+                Referral Form
+            </div>
+
+            <form #form="ngForm" (submit) = "handleReferral(form)">
+                <input type="hidden" name="id" [value]="formData.id" />
+        
+                <div class="form-group">
+                    <label>Candidate Name</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="name" name="candName" 
+                    #candName="ngModel" [(ngModel)]="formData.candName" 
+                    required>
+                </div>
+        
+                <div class="form-group">
+                    <label>Job ID</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="job id" name="jobId" 
+                    #jobId="ngModel" [(ngModel)]="formData.jobId" 
+                    required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Candidate Phone</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="phonenumber" name="candPhone" 
+                    #candPhone="ngModel" [(ngModel)]="formData.candPhone" 
+                    required maxlength="10" minlength="10">
+                </div>
+                
+                <div class="form-group">
+                    <label>Candidate Email</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="email" name="candEmail" 
+                    #candEmail="ngModel" [(ngModel)]="formData.candEmail"
+                    required >
+                </div>
+                
+        
+                <hr style="width:80%; margin-left:6%; ">
+                
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="id" name="empId" 
+                    #empId="ngModel" [(ngModel)]="formData.empId" 
+                    required>
+                </div>
+                 
+                <div class="form-group">
+                    <label>Employee Name</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="Name" name="empName" 
+                    #empName="ngModel" [(ngModel)]="formData.empName" 
+                    required>
+                </div>
+                
+                <!-- <div class="form-group">
+                    <label>Comment</label>
+                    <input class="form-control form-control-md col-md-11" placeholder="text" name="comment" 
+                    #comment="ngModel" [(ngModel)]="formData.comment"
+                    required >
+                </div>  
+         -->
+                <div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+        
+
+        </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<!-- <div class="log">
+    <img style="width: 100%;height: 800px;" src="https://www.loginradius.com/blog/start-with-identity/static/3b4c33cef1861297f7da778dff9074a7/a3513/login-security.png">
+    <div class="col-5 container " style="margin-top: 30px;">
+        <br>
+        <br>
+        <h3 style="font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; color: whitesmoke; font-size: 36px;"> Log-In Form </h3>
+        <br>
+        
+    </div> 
+<div> -->
+<img src="https://icons-for-free.com/iconfiles/png/512/home+page+profile+user+icon-1320184041392976124.png"  style="height: 150px; width: 150px; margin-left: 30%;">
+    <form #form="ngForm" (ngSubmit)="handleLogin(form)">
+        <div class="form-group required">
+            <label style="color: whitesmoke;">Username</label>
+            <input type="text" class="form-control" placeholder="username"  name="Username" #Username="ngModel" [(ngModel)]="formModel.Username"  required>
+             
+        </div>
+        <div class="form-group">
+            <label style="color: whitesmoke;">Password</label>
+            <input type="password" class="form-control" placeholder="password" name="Password" #Password="ngModel" [(ngModel)]="formModel.Password"  required>
+        
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn" style="color: whitesmoke;" [disabled]="form.invalid">Login</button>
+        </div>
+        <button routerLink="/firstpage" class="btn" style="color: whitesmoke; ">Back to HomePage</button>
+       
+    </form>
+    <br>
